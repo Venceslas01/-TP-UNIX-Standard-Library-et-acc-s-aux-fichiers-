@@ -1,0 +1,25 @@
+Premier Appel de foo :
+    foo(3, 4, 5, 6) passe (4, 5, 6). la somme est donc : 4 + 5 + 6 = 15
+
+Second Appel de foo :
+    foo(5, i, i, i, i, i++) 
+     i est incrémenté à 2 à cause du i++ sauf le i du i++
+    La somme  9 = 2+2+2+2+1
+
+Troisième Appel de foo :
+    foo(5, i, i, i, i, ++i) 
+    i = 2
+ i est incrémenté et passe donc à 3 à cause du ++i
+Les arguments passés sont donc (3, 3, 3, 3, 3).
+la somme est donc : 15 = 3+3+3+3+3
+
+venceslas@eijv12:~/algo/système /output$ ./"callstack"
+out: 15
+out: 9
+out: 15
+
+Principe de fonctionnement
+
+Les valeurs sont traitées en partant de la fin de la liste des arguments. L'utilisation des opérateurs ++i ou i++ affecte l'ordre et la valeur des arguments : ++i incrémente la valeur avant son utilisation dans la fonction, tandis que i++ l'incrémente après. Cela a un impact direct sur la façon dont les valeurs sont gérées et stockées dans la pile d'appels de la fonction.
+
+On en déduit que le CALLSTACK lie à l'envers.
